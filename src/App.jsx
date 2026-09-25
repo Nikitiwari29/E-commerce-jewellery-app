@@ -63,7 +63,7 @@ function App() {
       navigate("/login");
       return;
     }
-    const response =await authFetch("http://localhost:5000/api/cart/add",{
+    const response =await authFetch("https://e-commerce-jewellery-app.onrender.com/api/cart/add",{
       method:"POST",
       headers:{
         "content-type":"application/json",
@@ -95,7 +95,7 @@ fetchCart();
       }
      
       const response = await authFetch(
-        "http://localhost:5000/api/cart",{
+        "https://e-commerce-jewellery-app.onrender.com/api/cart",{
           onUnauthorized:handleUnauthorized
         }
       );
@@ -142,7 +142,7 @@ fetchCart();
       );
 
       if(alreadyExists){
-        const response = await authFetch(`http://localhost:5000/api/wishlist/remove/${product.id}`,{
+        const response = await authFetch(`https://e-commerce-jewellery-app.onrender.com/api/wishlist/remove/${product.id}`,{
           method:"Delete",
          onUnauthorized:handleUnauthorized
 
@@ -161,7 +161,7 @@ fetchCart();
         console.log("Removed from Wishlist:",data);
         return;
         }
-        const response = await authFetch("http://localhost:5000/api/wishlist/add",{
+        const response = await authFetch("https://e-commerce-jewellery-app.onrender.com/api/wishlist/add",{
           method:"POST",
           headers:{
             "Content-Type":"application/json"
@@ -199,7 +199,7 @@ fetchCart();
         return;
       }
 
-      const response=await authFetch("http://localhost:5000/api/wishlist",{
+      const response=await authFetch("https://e-commerce-jewellery-app.onrender.com/api/wishlist",{
         onUnauthorized:handleUnauthorized
       });
 
@@ -322,6 +322,7 @@ fetchCart();
           onAddToCart={handleAddtoCart}
           onAddToWishlist={handleAddToWishlist}
           wishlist={wishlist}
+          cart={cart}
           />
         }
         />

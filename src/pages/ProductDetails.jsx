@@ -5,7 +5,7 @@ import {useParams,useNavigate} from "react-router-dom";
 
 import products from "../data/products";
 const ProductDetails =({
-    onAddToCart,onAddToWishlist,wishlist
+    onAddToCart,onAddToWishlist,wishlist,cart
 })=>{
     
     const navigate = useNavigate();
@@ -21,6 +21,9 @@ const ProductDetails =({
      const isWishlisted = wishlist.some(
         (item) => item.id === product.id);
 
+        const isInCart = cart.some(
+    (item) => Number(item.productId || item.id) === product.id
+);
     return(
         <section className="bg-gray-50 min-h-screen py-10">
             <div className="max-w-6xl mx-auto px-6">
@@ -60,10 +63,16 @@ const ProductDetails =({
                     </p>
 
                     <div className="flex gap-3 mt-8">
-                        <button onClick={()=> onAddToCart(product)}
+                        <button onClick={()=> {
+                            if(isInCart){
+                                navigate("/cart")
+                            }else{
+                                onAddToCart(product)
+                            }
+                        }}
                          className="flex-1 bg-black text-white py-3 rounded-xl flex items-center justify-center gap-2 hover:bg-gray-800 transition">
                         <ShoppingCart size={19}/>
-                        Add to Cart
+                        {isInCart ? "Go to cart" : "Add to cart"}
                         </button>
                         <button onClick={()=> onAddToWishlist(product)} className={`p-3 rounded-xl border transition 
                             ${isWishlisted ? "text-red-600 border-red-200 bg-red-50" : "text-gray-700 hover:bg-gray-50"

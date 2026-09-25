@@ -27,7 +27,7 @@ const Cart = ({cart,setCart})=>{
 
             const newQuantity = item.quantity+1;
 
-            const response = await fetch(`http://localhost:5000/api/cart/update/${productId}`,{
+            const response = await fetch(`https://e-commerce-jewellery-app.onrender.com/api/cart/update/${productId}`,{
                 method:"PUT",
                 headers:{
                     Authorization:`Bearer ${token}`,
@@ -75,7 +75,7 @@ const Cart = ({cart,setCart})=>{
     } 
     const newQuantity = item.quantity-1;
 
-    const response = await fetch(`http://localhost:5000/api/cart/update/${productId}`,{
+    const response = await fetch(`https://e-commerce-jewellery-app.onrender.com/api/cart/update/${productId}`,{
 
         method:"PUT" ,
         headers:{
@@ -112,7 +112,7 @@ const Cart = ({cart,setCart})=>{
                 return;
             }
 
-            const response = await fetch(`http://localhost:5000/api/cart/remove/${productId}`,
+            const response = await fetch(`https://e-commerce-jewellery-app.onrender.com/api/cart/remove/${productId}`,
                 {
                     method:"DELETE",
                     headers:{
@@ -149,7 +149,7 @@ const Cart = ({cart,setCart})=>{
                 return;
             };
 
-            const response = await fetch("http://localhost:5000/api/cart/clear",{
+            const response = await fetch("https://e-commerce-jewellery-app.onrender.com/api/cart/clear",{
                 method:"DELETE",
                 headers:{
                     Authorization:`Bearer ${token}`,

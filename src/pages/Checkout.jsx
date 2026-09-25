@@ -58,7 +58,7 @@ const Checkout =({cart,setCart,orders,setOrders})=>{
 
             console.log(orderItems)
 
-            const response = await fetch("http://localhost:5000/api/orders",{
+            const response = await fetch("https://e-commerce-jewellery-app.onrender.com/api/orders",{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",
@@ -78,7 +78,7 @@ const Checkout =({cart,setCart,orders,setOrders})=>{
             }
             console.log("Order Created :",data.order);
 
-            const clearCartResponse=await fetch("http://localhost:5000/api/cart/clear",{
+            const clearCartResponse=await fetch("https://e-commerce-jewellery-app.onrender.com/api/cart/clear",{
                 method:"DELETE",
                 headers:{
                     Authorization:`Bearer ${token}`
