@@ -107,19 +107,7 @@ function Navbar({ search, setSearch, cart, wishlist ,user, setUser }) {
             Collections
           </Link>
 
-          <a
-            href="#"
-            className="border-b py-4 text-black transition hover:text-white"
-          >
-            About
-          </a>
-
-          <a
-            href="#"
-            className="border-b py-4 text-black transition hover:text-white"
-          >
-            Contact
-          </a>
+          
 
           <Link
           to="/orders"
